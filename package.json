@@ -1,27 +1,29 @@
 {
-  "name": "angular-payments",
-  "description": "Directive for formatting and validating credit card forms",
-  "version": "0.1.0",
-  "homepage": "https://github.com/laurihy/angular-payments",
-  "author": {
-    "name": "Lauri Hynynen",
-    "url": "https://github.com/laurihy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/laurihy/angular-payments.git"
-  },
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-cli": "~0.1.7",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-concat": "~0.2.0",
-    "grunt-contrib-connect": "~0.5.0"
-  }
+	"name": "ng-stripe-payments",
+	"description": "Directive for formatting and validating credit card forms",
+	"version": "0.1.0",
+	"homepage": "https://github.com/cubicleWar/ng-stripe-payments",
+	"author": {
+		"name": "Trevor Walker",
+		"url": "https://github.com/cubicleWar"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/cubicleWar/ng-stripe-payments.git"
+	},
+	"licenses": [
+		{
+			"type": "MIT"
+		}
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"grunt": "~0.4.1",
+		"grunt-cli": "~0.1.7",
+		"grunt-contrib-jshint": "latest",
+		"grunt-contrib-uglify": "~0.2.0",
+		"grunt-contrib-concat": "~0.2.0",
+		"grunt-contrib-watch": "latest",
+		"grunt-contrib-connect": "~0.5.0"
+	}
 }

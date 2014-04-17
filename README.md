@@ -12,7 +12,7 @@ All I did was port and combine these great libraries. Cheers!
 
 ## Usage
 
-To use Angular Payments, add angularPayments as a dependency to your AngularJS module or app.
+To use Angular Payments, add ngStripePayments as a dependency to your AngularJS module or app.
 
 Angular Payments it self depends on 2 libraries:
 

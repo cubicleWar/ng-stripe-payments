@@ -1,19 +1,19 @@
 {
-  "name": "angular-payments",
+  "name": "ng-stripe-payments",
   "version": "0.1.0",
-  "homepage": "https://github.com/laurihy/angular-payments",
+  "homepage": "https://github.com/cubicleWar/ng-stripe-payments",
   "authors": [
-    "Lauri Hynynen <@laurihy>"
+    "Trevor Walker <@cubicleWar>"
   ],
-  "description": "Directive for formatting and validating credit card forms",
+  "description": "Directive for formatting and validating credit card forms, forked from laurihy/angular-payments",
   "keywords": [
     "stripe",
     "stripe.js",
     "stripejs",
     "stripe-angular",
     "stripeAngular",
-    "angular-payments",
-    "angularPayments"
+    "ng-stripe-payments",
+    "ngStripePayments"
   ],
   "license": "MIT",
   "ignore": [
