@@ -102,7 +102,7 @@ angular.module('ngStripePayments').factory('_Validate', ['Cards', 'Common', '$pa
 
 	_validators.expiry = function(val) {
 		// valid if empty - let ng-required handle empty
-		if(val === null || val.length === 0) {
+		if(!val || val.length === 0) {
 			return true;
 		}
 
