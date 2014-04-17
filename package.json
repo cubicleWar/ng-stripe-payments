@@ -1,12 +1,18 @@
 {
 	"name": "ng-stripe-payments",
 	"description": "Directive for formatting and validating credit card forms",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"homepage": "https://github.com/cubicleWar/ng-stripe-payments",
 	"author": {
-		"name": "Trevor Walker",
-		"url": "https://github.com/cubicleWar"
+		"name": "Lauri Hynynen",
+		"url": "https://github.com/laurihy"
 	},
+	"contributors": [
+		{
+			"name": "Trevor Walker",
+			"url": "https://github.com/cubicleWar"
+		}
+	],
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/cubicleWar/ng-stripe-payments.git"

@@ -1,26 +1,28 @@
 {
-  "name": "ng-stripe-payments",
-  "version": "0.1.0",
-  "homepage": "https://github.com/cubicleWar/ng-stripe-payments",
-  "authors": [
-    "Trevor Walker <@cubicleWar>"
-  ],
-  "description": "Directive for formatting and validating credit card forms, forked from laurihy/angular-payments",
-  "keywords": [
-    "stripe",
-    "stripe.js",
-    "stripejs",
-    "stripe-angular",
-    "stripeAngular",
-    "ng-stripe-payments",
-    "ngStripePayments"
-  ],
-  "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ]
+	"name": "ng-stripe-payments",
+	"version": "0.1.1",
+	"homepage": "https://github.com/cubicleWar/ng-stripe-payments",
+	"authors": [
+		"Lauri Hynynen <@laurihy>",
+		"Trevor Walker <@cubicleWar>"
+	],
+	"main": "lib/ng-stripe-payments.js",
+	"description": "Directive for formatting and validating credit card forms, forked from laurihy/angular-payments",
+	"keywords": [
+		"stripe",
+		"stripe.js",
+		"stripejs",
+		"stripe-angular",
+		"stripeAngular",
+		"ng-stripe-payments",
+		"ngStripePayments"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	]
 }

@@ -60,7 +60,6 @@ angular.module('ngStripePayments').directive('stripeForm', ['$window', '$parse',
 				button.prop('disabled', true);
 				
 				if(form.hasClass('ng-valid')) {
-				
 					$window.Stripe.createToken(_getDataToSend(scope), function() {
 						var args = arguments;
 						scope.$apply(function() {
@@ -76,8 +75,8 @@ angular.module('ngStripePayments').directive('stripeForm', ['$window', '$parse',
 					button.prop('disabled', false);
 				}
 				
-				scope.expiryMonth = expMonthUsed ? scope.expMonth : null;
-				scope.expiryYear = expYearUsed ? scope.expMonth : null;
+				scope.expiryMonth = null;
+				scope.expiryYear = null;
 			});
 		}
 	};
