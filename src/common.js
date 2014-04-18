@@ -1,5 +1,6 @@
 angular.module('ngStripePayments').factory('Common', [function(){
-
+	"use strict";
+	
 	var ret = {};
 	
 	// expiry is a string "mm / yy[yy]"

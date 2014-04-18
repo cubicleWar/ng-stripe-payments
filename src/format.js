@@ -1,5 +1,6 @@
 angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filter', function(Cards, Common, $filter){
-
+	"use strict";
+	
 	var _formats = {};
 
 	var _hasTextSelected = function($target) {
@@ -158,10 +159,10 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 	};
 
 	_formats.card = function(elem, ctrl){
-		elem.bind('keypress', _restrictCardNumber);
-		elem.bind('keypress', _formatCardNumber);
-		elem.bind('keydown', _formatBackCardNumber);
-		elem.bind('paste', _reFormatCardNumber);
+		elem.bind('keypress', _restrictCardNumber)
+			.bind('keypress', _formatCardNumber)
+			.bind('keydown', _formatBackCardNumber)
+			.bind('paste', _reFormatCardNumber);
 	
 		ctrl.$parsers.push(_parseCardNumber);
 		ctrl.$formatters.push(_getFormattedCardNumber);
@@ -169,16 +170,16 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 
 
 	// cvc
-	_formatCVC = function(e){
-		$target = angular.element(e.currentTarget);
-		digit = String.fromCharCode(e.which);
+	var _formatCVC = function(e){
+		var $target = angular.element(e.currentTarget);
+		var digit = String.fromCharCode(e.which);
 	
 		if (!/^\d+$/.test(digit) && !e.meta && e.keyCode >= 46) {
 			e.preventDefault();
 			return;
 		}
 	
-		val = $target.val() + digit;
+		var val = $target.val() + digit;
 		
 		if(val.length <= 4){
 			return;
@@ -193,8 +194,7 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 	};
 
 	// expiry
-	
-	_restrictExpiry = function(e) {
+	var _restrictExpiry = function(e) {
 		var $target, digit, value;
 		
 		$target = angular.element(e.currentTarget);
@@ -218,7 +218,7 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 		}
 	};
 
-	_formatExpiry = function(e) {
+	var _formatExpiry = function(e) {
 		var $target, digit, val;
 		
 		digit = String.fromCharCode(e.which);
@@ -241,7 +241,7 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 		}
 	};
 
-	_formatForwardExpiry = function(e) {
+	var _formatForwardExpiry = function(e) {
 		var $target, digit, val;
 		
 		digit = String.fromCharCode(e.which);
@@ -258,7 +258,7 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 		}
 	};
 		
-	_formatForwardSlash = function(e) {
+	var _formatForwardSlash = function(e) {
 		var $target, slash, val;
 		
 		slash = String.fromCharCode(e.which);
@@ -275,7 +275,7 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 		}
 	};
 
-	_formatBackExpiry = function(e) {
+	var _formatBackExpiry = function(e) {
 		var $target, value;
 		
 		if (e.meta) {
@@ -324,11 +324,11 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 
 
 	_formats.expiry = function(elem, ctrl) {
-		elem.bind('keypress', _restrictExpiry);
-		elem.bind('keypress', _formatExpiry);
-		elem.bind('keypress', _formatForwardSlash);
-		elem.bind('keypress', _formatForwardExpiry);
-		elem.bind('keydown', _formatBackExpiry);
+		elem.bind('keypress', _restrictExpiry)
+			.bind('keypress', _formatExpiry)
+			.bind('keypress', _formatForwardSlash)
+			.bind('keypress', _formatForwardExpiry)
+			.bind('keydown', _formatBackExpiry);
 		
 		ctrl.$parsers.push(_parseExpiry);
 		ctrl.$formatters.push(_getFormattedExpiry);
@@ -349,6 +349,8 @@ angular.module('ngStripePayments').factory('_Format',['Cards', 'Common', '$filte
 }])
 
 .directive('paymentsFormat', ['$window', '_Format', function($window, _Format){
+	"use strict";
+
 	return {
 		restrict: 'A',
 		require: 'ngModel',

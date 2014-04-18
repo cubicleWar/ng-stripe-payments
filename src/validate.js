@@ -1,5 +1,6 @@
 angular.module('ngStripePayments').factory('_Validate', ['Cards', 'Common', '$parse', function(Cards, Common, $parse){
-
+	"use strict";
+	
 	var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 	
 	var _luhnCheck = function(num) {
@@ -95,9 +96,8 @@ angular.module('ngStripePayments').factory('_Validate', ['Cards', 'Common', '$pa
 			typeModel.assign(scope, card.type);
 		}
 		
-		ret = (ref = num.length, __indexOf.call(card.length, ref) >= 0) && (card.luhn === false || _luhnCheck(num));
 		
-		return ret;
+		return ((ref = num.length, __indexOf.call(card.length, ref) >= 0) && (card.luhn === false || _luhnCheck(num)));
 	};
 
 	_validators.expiry = function(val) {
@@ -106,10 +106,10 @@ angular.module('ngStripePayments').factory('_Validate', ['Cards', 'Common', '$pa
 			return true;
 		}
 
-		obj = Common.parseExpiry(val);
+		var obj = Common.parseExpiry(val);
 
-		month = obj.month;
-		year = obj.year;
+		var month = obj.month;
+		var year = obj.year;
 		
 		var currentTime, expiry, prefix;
 		
@@ -159,6 +159,7 @@ angular.module('ngStripePayments').factory('_Validate', ['Cards', 'Common', '$pa
 
 
 .factory('_ValidateWatch', ['_Validate', function(_Validate){
+	"use strict";
 
 	var _validatorWatches = {};
 	
@@ -181,6 +182,8 @@ angular.module('ngStripePayments').factory('_Validate', ['Cards', 'Common', '$pa
 }])
 
 .directive('paymentsValidate', ['$window', '_Validate', '_ValidateWatch', function($window, _Validate, _ValidateWatch){
+	"use strict";
+	
 	return {
 		restrict: 'A',
 		require: 'ngModel',

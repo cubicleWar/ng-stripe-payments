@@ -1,5 +1,6 @@
 angular.module('ngStripePayments').factory('Cards', [function(){
-
+	"use strict";
+	
 	var defaultFormat = /(\d{1,4})/g;
 	var defaultInputFormat =  /(?:^|\s)(\d{4})$/;
 	

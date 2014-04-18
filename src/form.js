@@ -1,20 +1,20 @@
 angular.module('ngStripePayments').directive('stripeForm', ['$window', '$parse', 'Common', function($window, $parse, Common) {
-    
-// directive intercepts form-submission, obtains Stripe's cardToken using stripe.js
-// and then passes that to callback provided in stripeForm, attribute.
-
-// data that is sent to stripe is filtered from scope, looking for valid values to
-// send and converting camelCase to snake_case, e.g expMonth -> exp_month
-
-
-// filter valid stripe-values from scope and convert them from camelCase to snake_case
+    "use strict";
+	// directive intercepts form-submission, obtains Stripe's cardToken using stripe.js
+	// and then passes that to callback provided in stripeForm, attribute.
+	
+	// data that is sent to stripe is filtered from scope, looking for valid values to
+	// send and converting camelCase to snake_case, e.g expMonth -> exp_month
+	
+	
+	// filter valid stripe-values from scope and convert them from camelCase to snake_case
 	var _getDataToSend = function(data) {
 	
 		var possibleKeys = ['number', 'expMonth', 'expYear', 
-						'cvc', 'name','addressLine1', 
-						'addressLine2', 'addressCity',
-						'addressState', 'addressZip',
-						'addressCountry'];
+							'cvc', 'name','addressLine1', 
+							'addressLine2', 'addressCity',
+							'addressState', 'addressZip',
+							'addressCountry'];
 		
 		var camelToSnake = function(str) {
 			return str.replace(/([A-Z])/g, function(m) {
@@ -47,11 +47,11 @@ angular.module('ngStripePayments').directive('stripeForm', ['$window', '$parse',
 			
 			form.bind('submit', function() {
 			
-				expMonthUsed = scope.expMonth ? true : false;
-				expYearUsed = scope.expYear ? true : false;
+				var expMonthUsed = scope.expMonth ? true : false;
+				var expYearUsed = scope.expYear ? true : false;
 				
 				if(!(expMonthUsed && expYearUsed)) {
-					exp = Common.parseExpiry(scope.expiry);
+					var exp = Common.parseExpiry(scope.expiry);
 					scope.expMonth = exp.month;
 					scope.expYear = exp.year;
 				}
@@ -67,7 +67,6 @@ angular.module('ngStripePayments').directive('stripeForm', ['$window', '$parse',
 						});
 						button.prop('disabled', false);
 					});
-				
 				} else {
 					scope.$apply(function() {
 						scope[attr.stripeForm].apply(scope, [400, {error: 'Invalid form submitted.'}]);
